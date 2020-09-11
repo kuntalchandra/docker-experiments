@@ -10,7 +10,7 @@ app.get(
     function (req, res) {
 	    res.json({
 	        name: "K",
-		surnme: "C"
+		surname: "C"
 	    })
     }
 );

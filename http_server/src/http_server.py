@@ -7,7 +7,7 @@ import json
 from urllib.request import Request, urlopen
 
 HTTP_PORT = int(os.environ.get("PORT"))
-API_SERVER_URL = os.environ.get("API_SERVR_URL")
+API_SERVER_URL = os.environ.get("API_SERVER_URL")
 
 
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -16,16 +16,17 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header("Content-type", "text/html")
         self.end_headers()
 
-        html = """<html><body><h1>(message)</h1></body></html>"""
+        html = "<html><body><h1>{}</h1></body></html>"
 
-        if not API_SERVER_URL:
-            # url = "{}/person".format(API_SERVER_URL)
-            response = urlopen(Request(API_SERVER_URL))
-            person = json.loads(response.read(), decode())
+        if API_SERVER_URL:
+            url = "{}/person".format(API_SERVER_URL)
+            response = urlopen(Request(url))
+            person = json.loads(response.read())
             message = "Hello from {} {}!".format(person["name"], person["surname"])
         else:
             message = "No connection from API server. API_SERVER_URL not defined."
-        self.wfile.write(bytes(html.format(message=message), "utf8"))
+
+        self.wfile.write(bytes(html.format(message), "utf8"))
         return
 
 
