@@ -9,7 +9,7 @@
 - Build images using Docker Compose and final adjustments
 
 ## Purpose
-- To remind myself how it all started. And, also keep it backed up.
+- To remind myself how it all started. Also keep it backed up and handy.
 
 ### Basic commands
 - `$ docker run --name example_container hello-world`
