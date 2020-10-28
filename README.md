@@ -15,7 +15,11 @@
 - `$ docker run --name example_container hello-world`
 - `$ docker images`
 - `$ docker container ls -a`
+- `$ docker exec -it f5ac855a31b0 bash`
+- `$ docker container logs f5ac855a31b0`
+- `$ docker stop f5ac855a31b0`
 - `$ docker rm f5ac855a31b0`
+- `$ docker container ps -a`
 - `$ docker rmi 61941b2`
 - `$ docker pull ubuntu`
 - `$ docker create -it --name sample_ubuntu_container ubuntu`
